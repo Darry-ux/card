@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Hearts</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fdf8f6;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgb(234, 82, 145);
+            clip-path: path('M24 3.998c-5-10-19-4-19 6 0 11 19 21 19 21s19-10 19-21c0-10-14-16-19-6z');
+            animation: float 5s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background-color: rgb(234, 82, 145);;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .gif-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 150px;
+        }
+
+        .polaroid img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-weight: bold;
+            color: rgb(234, 82, 145);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="hearts"></div>
+
+    <div class="container">
+        
+        <div class="gif-row">
+            <div class="polaroid">
+                <img src="assets/0.gif" alt="GIF 1">
+                <div class="caption">Hugs for life!</div>
+            </div>
+            <div class="polaroid">
+                <img src="./assets/1.gif" alt="GIF 2">
+                <div class="caption">Glad, I found you!</div>
+            </div>
+        </div>
+        <div class="gif-row">
+            <div class="polaroid">
+                <img src="assets/2.gif" alt="GIF 3">
+                <div class="caption">You're my happy place!</div>
+            </div>
+            <div class="polaroid">
+                <img src="./assets/3.gif" alt="GIF 4">
+                <div class="caption">All my love, <br>for you!</div>
+            </div>
+        </div>
+        <div class="title">You are my forever</div>
+    </div>
+
+   
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.querySelector('.hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
