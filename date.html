@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,42 +101,24 @@
         <div class="gif-row">
             <div class="polaroid">
                 <img src="assets/0.gif" alt="GIF 1">
-                <div class="caption">Caption 1</div>
+                <div class="caption">Hugs for life!</div>
             </div>
             <div class="polaroid">
                 <img src="./assets/1.gif" alt="GIF 2">
-                <div class="caption">Caption 2</div>
+                <div class="caption">Glad, I found you!</div>
             </div>
         </div>
         <div class="gif-row">
             <div class="polaroid">
                 <img src="assets/2.gif" alt="GIF 3">
-                <div class="caption">Caption 3</div>
+                <div class="caption">You're my happy place!</div>
             </div>
             <div class="polaroid">
                 <img src="./assets/3.gif" alt="GIF 4">
-                <div class="caption">Caption 4</div>
+                <div class="caption">All my love, <br>for you!</div>
             </div>
         </div>
         <div class="title">You are my forever</div>
     </div>
 
    
-
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            document.querySelector('.hearts').appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        setInterval(createHeart, 300);
-    </script>
-</body>
-</html>
