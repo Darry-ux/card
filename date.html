@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,65 +48,65 @@
 
         .container {
             background: rgb(200, 50, 120);
-            padding: 20px;
-            border-radius: 20px;
+            padding: 15px;
+            border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 90%;
-            max-width: 800px;
+            max-width: 600px;
             z-index: 2;
             text-align: center;
         }
 
         .polaroid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
             width: 100%;
         }
 
         .polaroid {
             background: white;
-            padding: 10px;
+            padding: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
         }
 
         .polaroid img {
-            width: 100%;
-            height: auto;
+            width: 80px;
+            height: 80px;
             border-radius: 5px;
         }
 
         .caption {
-            margin-top: 10px;
-            font-size: 20px;
+            margin-top: 5px;
+            font-size: 14px;
             font-weight: bold;
-            color:rgb(234, 82, 145);
+            color: rgb(234, 82, 145);
         }
 
         .pcaption {
-            margin-top: 10px;
-            font-size: 20px;
+            margin-top: 15px;
+            font-size: 18px;
             font-weight: bold;
             color: #fcefe3;
         }
 
-        @media (max-width: 768px) {
-            .caption {
-                font-size: 18px;
-            }
-        }
-
         @media (max-width: 480px) {
-            .container {
-                padding: 15px;
+            .polaroid-container {
+                grid-template-columns: repeat(1, 1fr);
             }
-
+            .polaroid img {
+                width: 60px;
+                height: 60px;
+            }
             .caption {
+                font-size: 12px;
+            }
+            .pcaption {
                 font-size: 16px;
             }
         }
@@ -137,6 +137,10 @@
             <div class="polaroid">
                 <img src="./assets/3.gif" alt="Love GIF 3">
                 <div class="caption">All my love, for you!</div>
+            </div>
+            <div class="polaroid">
+                <img src="./assets/0.gif" alt="Love GIF 4">
+                <div class="caption">Hugs for life!</div>
             </div>
         </div>
         <div class="pcaption">You Are My Forever</div>
