@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fcefe3;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        body.transition {
+            animation: fadeOut 1s ease-in-out;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgb(234, 82, 145);
+            clip-path: path('M24 3.998c-5-10-19-4-19 6 0 11 19 21 19 21s19-10 19-21c0-10-14-16-19-6z');
+            animation: float 5s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .polaroid {
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+            z-index: 10;
+            transition: transform 1s ease-in-out, opacity 0.5s;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(200, 50, 120);
+        }
+
+        .hbutton {
+            background: #ea5291;
+            color: white;
+            font-size: 20px;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .hbutton:hover {
+            background: rgb(200, 50, 120);
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .polaroid {
+                padding: 15px;
+            }
+
+            .caption {
+                font-size: 20px;
+            }
+
+            .hbutton {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+
+            .heart {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .polaroid {
+                padding: 10px;
+            }
+
+            .caption {
+                font-size: 18px;
+            }
+
+            .hbutton {
+                font-size: 16px;
+                padding: 8px 18px;
+            }
+
+            .heart {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <script>
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.className = "heart";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.querySelector(".background").appendChild(heart);
+            }
+        </script>
+    </div>
+
+    <div class="polaroid" id="polaroid-frame">
+        <img src="./assets/flo.gif" alt="Bouquet" id="gif-display">
+        <div class="caption">FOR MY MAN!</div>
+        
+        <button class="hbutton" onclick="goToDatePage()">LET'S GO TO A DATE</button>
+    </div>
+    
+    <script>
+        function goToDatePage() {
+            document.body.classList.add('transition');
+            setTimeout(function() {
+                window.location.href = 'date.html';
+            }, 1000); // Delay for the animation duration (1 second)
+        }
+    </script>
+</body>
+</html>
