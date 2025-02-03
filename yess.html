@@ -11,31 +11,17 @@
             align-items: center;
             height: 100vh;
             background-color: #fcefe3;
-            flex-direction: column;
             font-family: Arial, sans-serif;
-            position: relative;
-            overflow: hidden;
+            flex-direction: column;
             margin: 0;
-        }
-
-        body.transition {
-            animation: fadeOut 1s ease-in-out;
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            overflow: hidden;
         }
 
         .background {
             position: absolute;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            z-index: 1;
         }
 
         .heart {
@@ -64,12 +50,9 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
             border-radius: 10px;
-            position: relative;
-            z-index: 10;
-            transition: transform 1s ease-in-out, opacity 0.5s;
+            z-index: 2;
             max-width: 400px;
-            width: 100%;
-            margin: 20px; /* Center the card with margin */
+            width: 90%;
         }
 
         .polaroid img {
@@ -103,15 +86,9 @@
             transform: scale(1.05);
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
-            body {
-                justify-content: flex-start; /* Align at the top for smaller screens */
-            }
-
             .polaroid {
                 padding: 15px;
-                margin: 10px;
                 max-width: 90%;
             }
 
@@ -122,37 +99,6 @@
             .hbutton {
                 font-size: 18px;
                 padding: 10px 20px;
-            }
-
-            .heart {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                justify-content: flex-start; /* Align at the top for smaller screens */
-            }
-
-            .polaroid {
-                padding: 10px;
-                margin: 10px;
-                max-width: 90%;
-            }
-
-            .caption {
-                font-size: 18px;
-            }
-
-            .hbutton {
-                font-size: 16px;
-                padding: 8px 18px;
-            }
-
-            .heart {
-                width: 30px;
-                height: 30px;
             }
         }
     </style>
@@ -169,20 +115,14 @@
             }
         </script>
     </div>
-
-    <div class="polaroid" id="polaroid-frame">
-        <img src="./assets/flo.gif" alt="Bouquet" id="gif-display">
+    <div class="polaroid">
+        <img src="./assets/flo.gif" alt="Bouquet">
         <div class="caption">FOR MY MAN!</div>
-        
         <button class="hbutton" onclick="goToDatePage()">LET'S GO TO A DATE</button>
     </div>
-    
     <script>
         function goToDatePage() {
-            document.body.classList.add('transition');
-            setTimeout(function() {
-                window.location.href = 'date.html';
-            }, 1000); // Delay for the animation duration (1 second)
+            window.location.href = 'date.html';
         }
     </script>
 </body>
