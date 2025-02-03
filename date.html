@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Are My Forever</title>
+    <title>Floating Hearts</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #fcefe3;
-            font-family: Arial, sans-serif;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
             margin: 0;
+            padding: 0;
+            background-color: #fdf8f6;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
-        .background {
-            position: absolute;
+        .hearts {
+            position: fixed;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            pointer-events: none;
             z-index: 1;
         }
 
         .heart {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: rgb(234, 82, 145);
             clip-path: path('M24 3.998c-5-10-19-4-19 6 0 11 19 21 19 21s19-10 19-21c0-10-14-16-19-6z');
             animation: float 5s infinite ease-in-out;
@@ -47,103 +47,95 @@
         }
 
         .container {
-            background: rgb(200, 50, 120);
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: rgb(234, 82, 145);;
+            padding: 20px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 90%;
-            max-width: 600px;
-            z-index: 2;
-            text-align: center;
+            gap: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .polaroid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            width: 100%;
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .gif-row {
+            display: flex;
+            gap: 20px;
         }
 
         .polaroid {
             background: white;
-            padding: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
+            max-width: 150px;
         }
 
         .polaroid img {
-            width: 80px;
-            height: 80px;
+            width: 100%;
             border-radius: 5px;
         }
 
         .caption {
-            margin-top: 5px;
-            font-size: 14px;
+            margin-top: 10px;
             font-weight: bold;
             color: rgb(234, 82, 145);
         }
 
-        .pcaption {
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fcefe3;
-        }
-
-        @media (max-width: 480px) {
-            .polaroid-container {
-                grid-template-columns: repeat(1, 1fr);
-            }
-            .polaroid img {
-                width: 60px;
-                height: 60px;
-            }
-            .caption {
-                font-size: 12px;
-            }
-            .pcaption {
-                font-size: 16px;
-            }
-        }
+        
     </style>
 </head>
 <body>
-    <div class="background">
-        <script>
-            for (let i = 0; i < 20; i++) {
-                let heart = document.createElement("div");
-                heart.className = "heart";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-                document.querySelector(".background").appendChild(heart);
-            }
-        </script>
-    </div>
+    <div class="hearts"></div>
+
     <div class="container">
-        <div class="polaroid-container">
+        
+        <div class="gif-row">
             <div class="polaroid">
-                <img src="./assets/1.gif" alt="Love GIF 1">
-                <div class="caption">Glad, I found you!</div>
+                <img src="assets/0.gif" alt="GIF 1">
+                <div class="caption">Caption 1</div>
             </div>
             <div class="polaroid">
-                <img src="./assets/2.gif" alt="Love GIF 2">
-                <div class="caption">You're my happy place!</div>
-            </div>
-            <div class="polaroid">
-                <img src="./assets/3.gif" alt="Love GIF 3">
-                <div class="caption">All my love, for you!</div>
-            </div>
-            <div class="polaroid">
-                <img src="./assets/0.gif" alt="Love GIF 4">
-                <div class="caption">Hugs for life!</div>
+                <img src="./assets/1.gif" alt="GIF 2">
+                <div class="caption">Caption 2</div>
             </div>
         </div>
-        <div class="pcaption">You Are My Forever</div>
+        <div class="gif-row">
+            <div class="polaroid">
+                <img src="assets/2.gif" alt="GIF 3">
+                <div class="caption">Caption 3</div>
+            </div>
+            <div class="polaroid">
+                <img src="./assets/3.gif" alt="GIF 4">
+                <div class="caption">Caption 4</div>
+            </div>
+        </div>
+        <div class="title">You are my forever</div>
     </div>
+
+   
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.querySelector('.hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>
